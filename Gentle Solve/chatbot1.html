@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot</title>
+  <style>
+    /* CSS for chat container */
+    .chat-container {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      width: 300px;
+      margin: 0 auto;
+    }
+    /* CSS for chat messages */
+    .chat-message {
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-bottom: 5px;
+    }
+    /* CSS for user input */
+    .user-input {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-message">Welcome to the chatbot!</div>
+    <div class="chat-message">How can I assist you today?</div>
+    <!-- Chat messages will be dynamically added here -->
+    <div class="user-input">
+      <input type="text" id="userInput" placeholder="Type your message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <!-- JavaScript for handling user input -->
+  <script>
+    function sendMessage() {
+      var userInput = document.getElementById("userInput").value;
+      var chatContainer = document.querySelector(".chat-container");
+      var userMessage = document.createElement("div");
+      userMessage.className = "chat-message";
+      userMessage.textContent = userInput;
+      chatContainer.appendChild(userMessage);
+      document.getElementById("userInput").value = "";
+    }
+  </script>
+</body>
+</html>

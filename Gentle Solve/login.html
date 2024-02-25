@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gentle Solve</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      background-image:url(LOGO.jpg);
+      background-repeat: no-repeat;
+      background-size:50%;
+      background-position: center;
+      background-position-y:top;
+      }
+
+    .chat-container {
+      max-width:600px;
+      margin: 50px auto;
+      background-color: #fff;
+      box-shadow : 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .chat-header {
+      background-color: #3498db;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .chat-body {
+      padding: 10px;
+      overflow-y: scroll;
+      max-height: 300px;
+    }
+
+    .message {
+      margin-bottom: 10px;
+    }
+
+    .user-message {
+      background-color: #e5e5ea;
+      border-radius: 5px;
+      padding: 8px;
+    }
+
+    .bot-message {
+      background-color: #3498db;
+      color: #fff;
+      border-radius: 5px;
+      padding: 8px;
+    }
+
+    .chat-footer {
+      padding: 10px;
+      background-color: #f4f4f4;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 8px;
+      border: none;
+      background-color: #3498db;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="chat-container">
+  <div class="chat-header">
+    Gentle Solve
+  </div>
+
+  <div class="chat-body" id="chat-body">
+    <!-- Chat messages will be displayed here -->
+  </div>
+
+  <div class="chat-footer">
+    <input type="text" id="user-input" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+    <link rel="stylesheet" href="chatbot.html">
+  </div>
+</div>
+
+<script>
+  function sendMessage() {
+    var userInput = document.getElementById("user-input").value;
+    if (userInput.trim() === "") return;
+
+    var chatBody = document.getElementById("chat-body");
+    
+    var userMessage = document.createElement("div");
+    userMessage.className = "message user-message";
+    userMessage.textContent = userInput;
+    chatBody.appendChild(userMessage);
+
+    var botResponse = "This is a simulated response from Gentle Solve.";
+    
+    var botMessage = document.createElement("div");
+    botMessage.className = "message bot-message";
+    botMessage.textContent = botResponse;
+    chatBody.appendChild(botMessage);
+
+    document.getElementById("user-input").value = "";
+
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+</script>
+
+</body>
+</html>

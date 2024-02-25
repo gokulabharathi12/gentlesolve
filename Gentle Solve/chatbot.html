@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot</title>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-message">Welcome to the chatbot!</div>
+    <div class="chat-message">How can I assist you today?</div>
+    <!-- Chat messages will be dynamically added here -->
+    <div class="user-input">
+      <input type="text" id="userInput" placeholder="Type your message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <!-- JavaScript for handling user input -->
+  <script>
+    function sendMessage() {
+      var userInput = document.getElementById("userInput").value;
+      var chatContainer = document.querySelector(".chat-container");
+      var userMessage = document.createElement("div");
+      userMessage.className = "chat-message";
+      userMessage.textContent = userInput;
+      chatContainer.appendChild(userMessage);
+      document.getElementById("userInput").value = "";
+    }
+  </script>
+</body>
+</html>
